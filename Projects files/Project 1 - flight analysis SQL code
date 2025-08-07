@@ -16,7 +16,7 @@ CREATE TABLE FLIGHTS (
     price INT
 );
 
-LOAD DATA LOCAL INFILE 'C:\\Users\\Jakub Mazur\\Desktop\\Portfolio\\Loty indie\\airlines_flights_data2.csv'
+LOAD DATA LOCAL INFILE 'ABC'
 INTO TABLE flights
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
