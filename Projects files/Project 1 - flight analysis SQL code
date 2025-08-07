@@ -1,0 +1,66 @@
+# Project 1 - flight analysis SQL code
+
+-- Table creation and loading data --
+CREATE TABLE FLIGHTS (
+    index_flight INT,
+    airline VARCHAR(45),
+    flight VARCHAR(15),
+    source_city VARCHAR(45),
+    departure_time VARCHAR(45),
+    stops VARCHAR(45),
+    arrival_time VARCHAR(45),
+    destination_city VARCHAR(45),
+    class VARCHAR(45),
+    duration VARCHAR(45),
+    days_left INT,
+    price INT
+);
+
+LOAD DATA LOCAL INFILE 'C:\\Users\\Jakub Mazur\\Desktop\\Portfolio\\Loty indie\\airlines_flights_data2.csv'
+INTO TABLE flights
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Extraction of the data for section A --
+SELECT
+  COUNT(CASE WHEN class = 'economy' THEN 1 ELSE NULL END) AS economy,
+  COUNT(CASE WHEN class = 'business' THEN 1 ELSE NULL END) AS business
+FROM flights;
+
+-- Extraction of the data for section B --
+SELECT
+  airline,
+  COUNT(CASE WHEN class = 'economy' THEN 1 ELSE NULL END) AS economy_flights,
+  COUNT(CASE WHEN class = 'business' THEN 1 ELSE NULL END) AS business_flights
+FROM flights
+GROUP BY airline
+ORDER BY business_flights desc;
+
+-- Extraction of the data for section C --
+SELECT destination_city, COUNT(flight) as NO_FLIGHTS
+FROM flights
+GROUP BY destination_city;
+
+-- Extraction of the data for section D --
+SELECT
+  destination_city,
+  class,
+  ROUND(AVG(price), 2) AS avg_price
+FROM
+  flights
+GROUP BY
+  destination_city, class
+ORDER BY
+  destination_city, class;
+  
+  -- Extraction of the data for section E --
+SELECT
+    price,
+    duration,
+    class
+FROM
+    flights
+WHERE
+    price IS NOT NULL AND duration IS NOT NULL;
