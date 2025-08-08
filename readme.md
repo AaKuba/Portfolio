@@ -6,6 +6,7 @@ As part of the activity at university, I've had a chance to prepare an analysis 
 1) Literature review - available on [Zenodo](https://doi.org/10.5281/zenodo.15640143).
    
 2) [Dashboard](https://github.com/AaKuba/Portfolio/blob/e11f87003f9d5c86531726e7679ecadd8fe39eef/Scientific%20dashboard.pdf) from a report - a description can be found [here](https://github.com/AaKuba/Portfolio/blob/d81c718e847164bc03c56abdb660f00f0e464316/Projects%20files/Description%20-%20scientific%20dashboard).
+3) Report on the effects of the funding program for the agriculture sector - LLM were used for translations the original paper, available [here](https://github.com/AaKuba/Portfolio/blob/fe725c8ed851efdfcdc2808ddca7bfb91bfe76a4/Projects%20files/Jakub%20Mazur%20-%20O%20efektach%20statystycznych%20poddzia%C5%82ania%206%2C2%20ENG.pdf).
 
 Upcoming projects: literature reviews about ESKAPE pathogens, original articles about vitamin C in fighting pathogens, and environmental and social analysis.
 
