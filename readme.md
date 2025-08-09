@@ -1,5 +1,5 @@
-# Portfolio
-Portfolio projects by Jakub Mazur.
+# Jakub Mazur - Scientific & Data Analysis Portfolio
+I am a biotechnology student and data analyst passionate about solving high-impact problems. My work spans from leading academic projects against antimicrobial resistance to driving data-informed decisions in a commercial environment.
 
 # Real scientific projects
 As part of the activity at university, I've had a chance to prepare an analysis from real scientific data:
@@ -15,21 +15,35 @@ This project focuses on the basic analysis of flights in India. The dataset was 
 The dashboard was prepared in Power BI and can be obtained [here](https://github.com/AaKuba/Portfolio/blob/3ecf810c7d119ce906bbea2917deb0516db4ee75/Projects%20files/Flight%20analysis%20porfolio.pbix).
 Also, SQL code was prepared that could be used for data extraction, on which the dashboard had been based and is available [here](https://github.com/AaKuba/Portfolio/blob/fa9b092ca693a3410a5078e0fadb6b08f203f891/Projects%20files/Project%201%20-%20flight%20analysis%20SQL%20code).
 
-Bulletpoints of the analysis:
-1) The Indian market is dominated by economy class flights - over 2 times more flights categorized as economy class (A)
-2) The most popular airline is Vistara and is one of the two airlines that offer business class flights (B)
-3) The cheapest airlines offering economy class flights is AirAsia, and for business class flights it's Air India (data not shown)
-4) The most popular destination was Mumbai (C)
-5) The most expensive destination, despite of the class of the flight, was Kolkata (D)
-6) The most expensive flights (for both classes) depart from Kolkata (data not shown)
-7) No strong correlation can be found between flight distance and price, for both classes (E)
-8) Business and economy class flights that depart in the morning tend to be the most expensive (data not shown)
+Key Findings & Strategic Insights:
+1. Market Landscape
+The market is heavily skewed towards Economy Class, which constitutes over 2/3 of all flights (A). This indicates a large, price-sensitive customer base.
+Vistara is a dominant player, especially in the premium segment, being one of only two airlines offering Business Class (B).
 
-Based on the conclusions, we can recommend:
-1) Taking night or even late-night flights to reduce the costs of travelling
-2) Choosing AirAsia or Air India to reduce the costs of travelling (depends on the desired class)
-3) Avoiding travelling to Kolkata to reduce the costs
-4) Considering investments in Mumbai's tourist sector, as it's the most popular destination for flights
+   Strategic Insight: Direct competition with Vistara in the business segment would be capital-intensive. The primary opportunity lies in capturing the economy market.
+
+
+2. Geographical Opportunity: The Kolkata Pricing Anomaly
+While Mumbai is the most popular destination (C), our analysis revealed that Kolkata is consistently the most expensive destination and departure city, for both classes (D).
+Crucially, there is no strong correlation between flight duration/distance and price (E), suggesting that high prices in Kolkata are driven by different factor, for example lack of competition rather than operational costs.
+
+    Strategic Insight: This "pricing anomaly" represents the single greatest market opportunity. A new entrant can disrupt the market by offering significantly lower fares on routes to/from Kolkata.
+
+
+3. Pricing & Scheduling Strategy: Exploiting Inefficiencies
+Morning flights are consistently the most expensive, likely targeting business travelers. The cheapest available carriers are AirAsia (Economy) and Air India (Business).
+
+    Strategic Insight: A new airline can attract a large segment of leisure and budget travelers by focusing on a dynamic pricing model with competitive fares for off-peak hours (afternoon, evening).
+
+
+Business Recommendations for a new airline:
+
+Market Entry Strategy: Focus operations on high-demand, overpriced routes connecting Kolkata with major hubs like Mumbai and Delhi. Offer a base fare 15-20% below the current market average to rapidly gain market share.
+
+Core Offering: Concentrate primarily on a high-density Economy Class configuration to maximize volume and cater to the largest market segment. A small, competitively priced "Economy Plus" section could be tested as an alternative to a full Business Class.
+
+Pricing Model: Implement a dynamic pricing strategy that offers the lowest fares for off-peak travel (e.g., afternoon, late evening), explicitly targeting budget-conscious travelers and filling planes outside of the morning business rush.
+
 
 # Project 2
 This project focuses on the analysis of students' scores and the impact of the selected factors. The dataset used was obtained from [Kaggle](https://www.kaggle.com/datasets/lainguyn123/student-performance-factors).
