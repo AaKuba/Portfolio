@@ -1,0 +1,174 @@
+-- Table creation and loading data --
+CREATE TABLE results (
+    Hours_Studied decimal(5,2) null,
+    Attendance int null,
+    Parental_Involvement varchar (15) null,
+    Access_to_Resources	varchar (15) null,
+    Extracurricular_Activities varchar (15) null,
+    Sleep_Hours	decimal (5,2) null,
+    Previous_Scores	int null,
+    Motivation_Level varchar (15) null,
+    Internet_Access	varchar (15) null,
+    Tutoring_Sessions int null,
+    Family_Income varchar (15) null,
+    Teacher_Quality	varchar (15) null,
+    School_Type	varchar (15) null,
+    Peer_Influence	varchar (15) null,
+    Physical_Activity	int null,
+    Learning_Disabilities	varchar (15) null,
+    Parental_Education_Level varchar (15) null,
+    Distance_from_Home	varchar (15) null,
+    Gender	varchar (15) null,
+    Exam_Score int null
+);
+
+LOAD DATA LOCAL INFILE 'C:\\Users\\Jakub Mazur\\Desktop\\Portfolio\\Wyniki uczniow\\StudentPerformanceFactors.csv'
+INTO TABLE results
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- For graphpad prism we need to replace words and use numbers --
+UPDATE results
+SET
+    Parental_Involvement = CASE Parental_Involvement
+        WHEN 'Low' THEN 1
+        WHEN 'Medium' THEN 2
+        WHEN 'High' THEN 3
+        ELSE Parental_Involvement
+    END,
+    Access_to_Resources = CASE Access_to_Resources
+        WHEN 'Low' THEN 1
+        WHEN 'Medium' THEN 2
+        WHEN 'High' THEN 3
+        ELSE Access_to_Resources
+    END,
+    Motivation_Level = CASE Motivation_Level
+        WHEN 'Low' THEN 1
+        WHEN 'Medium' THEN 2
+        WHEN 'High' THEN 3
+        ELSE Motivation_Level
+    END,
+    Family_Income = CASE Family_Income
+        WHEN 'Low' THEN 1
+        WHEN 'Medium' THEN 2
+        WHEN 'High' THEN 3
+        ELSE Family_Income
+    END,
+    Teacher_Quality = CASE Teacher_Quality
+        WHEN 'Low' THEN 1
+        WHEN 'Medium' THEN 2
+        WHEN 'High' THEN 3
+        ELSE Teacher_Quality
+    END,
+       Peer_Influence = CASE  Peer_Influence
+        WHEN 'Negative' THEN 1
+        WHEN 'Neutral' THEN 2
+        WHEN 'Positive' THEN 3
+        ELSE Peer_Influence
+    END, 
+           Parental_Education_Level = CASE  Parental_Education_Level
+        WHEN 'High School' THEN 1
+        WHEN 'College' THEN 2
+        WHEN 'Postgraduate' THEN 3
+        ELSE Parental_Education_Level
+    END, 
+               Distance_from_Home = CASE  Distance_from_Home
+        WHEN 'Near' THEN 1
+        WHEN 'Moderate' THEN 2
+        WHEN 'Far' THEN 3
+        ELSE Distance_from_Home
+    END, 
+    Internet_access = CASE Internet_access
+        WHEN 'No' THEN 1
+        WHEN 'Yes' THEN 2
+        ELSE Internet_access
+    END,
+        School_Type = CASE School_Type
+        WHEN 'Public' THEN 1
+        WHEN 'Private' THEN 2
+        ELSE School_Type
+    END,
+       Gender = CASE Gender
+        WHEN 'Male' THEN 1
+        WHEN 'Female' THEN 2
+        ELSE Gender
+    END,
+        Learning_Disabilities = CASE Learning_Disabilities
+        WHEN 'No' THEN 1
+        WHEN 'Yes' THEN 2
+        ELSE Learning_Disabilities
+    END,
+         Extracurricular_Activities = CASE Extracurricular_Activities
+        WHEN 'No' THEN 1
+        WHEN 'Yes' THEN 2
+        ELSE Extracurricular_Activities
+    END;
+Alter table results
+modify column parental_involvement int, 
+modify column access_to_resources int, 
+modify column motivation_level int, 
+modify column family_income int, 
+modify column teacher_quality int;
+
+
+-- For some combination we need seperate datasets--
+SELECT
+    CASE WHEN gender = 1 THEN exam_score ELSE NULL END AS male_score,
+    CASE WHEN gender = 2 THEN exam_score ELSE NULL END AS female_score
+FROM
+    results;
+    
+SELECT
+    CASE WHEN Parental_Involvement = 1 THEN exam_score ELSE NULL END AS low_parental_involvement,
+    CASE WHEN Parental_Involvement = 2 THEN exam_score ELSE NULL END AS medium_parental_involvement,
+    CASE WHEN Parental_Involvement = 3 THEN exam_score ELSE NULL END AS high_parental_involvement
+FROM
+    results;
+    
+SELECT
+    CASE WHEN Access_to_Resources = 1 THEN exam_score ELSE NULL END AS low_Access_to_Resources,
+    CASE WHEN Access_to_Resources = 2 THEN exam_score ELSE NULL END AS medium_Access_to_Resources,
+    CASE WHEN Access_to_Resources = 3 THEN exam_score ELSE NULL END AS high_Access_to_Resources
+FROM
+    results;
+    
+ SELECT
+    CASE WHEN Extracurricular_Activities = 1 THEN exam_score ELSE NULL END AS Extracurricular_Activities,
+    CASE WHEN Extracurricular_Activities = 2 THEN exam_score ELSE NULL END AS NO_Extracurricular_Activities
+FROM
+    results;   
+    
+ SELECT
+    CASE WHEN Motivation_Level = 1 THEN exam_score ELSE NULL END AS low_Motivation_Level,
+    CASE WHEN Motivation_Level = 2 THEN exam_score ELSE NULL END AS medium_Motivation_Level,
+    CASE WHEN Motivation_Level = 3 THEN exam_score ELSE NULL END AS high_Motivation_Level
+FROM
+    results;   
+    
+ SELECT
+    CASE WHEN Internet_Access = 1 THEN exam_score ELSE NULL END AS Internet_Access,
+    CASE WHEN Internet_Access = 2 THEN exam_score ELSE NULL END AS NO_Internet_Access
+FROM
+    results; 
+    
+ SELECT
+    CASE WHEN Family_Income = 1 THEN exam_score ELSE NULL END AS low_Family_Income,
+    CASE WHEN Family_Income = 2 THEN exam_score ELSE NULL END AS medium_Family_Income,
+    CASE WHEN Family_Income = 3 THEN exam_score ELSE NULL END AS high_Family_Income
+FROM
+    results;
+    
+SELECT
+    CASE WHEN School_Type = 1 THEN exam_score ELSE NULL END AS public,
+    CASE WHEN School_Type = 2 THEN exam_score ELSE NULL END AS private
+FROM
+    results;
+    
+ SELECT
+    CASE WHEN Distance_from_Home = 1 THEN exam_score ELSE NULL END AS Near,
+    CASE WHEN Distance_from_Home = 2 THEN exam_score ELSE NULL END AS Moderate,
+	CASE WHEN Distance_from_Home = 3 THEN exam_score ELSE NULL END AS Far
+FROM
+    results;
