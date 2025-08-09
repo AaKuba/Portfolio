@@ -30,3 +30,31 @@ Based on the conclusions, we can recommend:
 2) Choosing AirAsia or Air India to reduce the costs of travelling (depends on the desired class)
 3) Avoiding travelling to Kolkata to reduce the costs
 4) Considering investments in Mumbai's tourist sector, as it's the most popular destination for flights
+
+# Project 2
+This project focuses on the analysis of students' scores and the impact of the selected factors. The dataset used was obtained from [Kaggle](https://www.kaggle.com/datasets/lainguyn123/student-performance-factors).
+The data was additionally extracted using MySQL and the prepared code is available [here](https://github.com/AaKuba/Portfolio/blob/25932dba12b89dd19a77fd6f95c5862c744d73dd/Projects%20files/Students%20results%20SQL%20code.txt).
+Due to the selected format (poster) some data wasn't shown and mentioned. Below, the more detailed analysis is shown. The poster can be downloaded from [here](https://github.com/AaKuba/Portfolio/blob/7a0a4aa97dc1c6e56e62bed6225abda3816bdcb0/Projects%20files/Students%20results.png).
+
+Bulletpoints of the analysis (in the brackets, the difference between the two border groups is presented; pp - % points):
+1. Parental education and involvement (Δ = 1,08 pp. and 1,59 pp. respectively) have a slight impact on the mean exam results. In addition it's worth noting that the group with low parental involvement could reach a maximum 94 points, compared to the group with high parental involvement, where the maximum score was 100 points.
+2. The greater distance from home impacts the mean exam score negatively (Δ = 1,05 pp.)
+3. Teacher quality has a greater influence (Δ = 0,93 pp.) than the type of school (Δ = 0,08 pp.)
+4. Negative peer influence results in lower exam scores (Δ = 1,06 pp.)
+5. Students with learning disabilities are at risk of gaining lower exam scores (Δ = 1,08 pp.). The aspect of maximum score is also worth noting - the highest score in the group with disabilities was 89 points.
+6. A moderate positive correlation can be found between exam score and hours spent on studying, and attendance level
+7. No significant correlation can be found between exam score and hours of sleep or previous score
+8. Students with internet access had a lower mean exam score compared to the group with no internet access (data not shown, Δ = 0,75 pp.)
+9. Students from higher class are more likely to receive greater exam scores (data not shown, Δ = 0,99 pp.)
+10. Male students tend to receive greater exam scores (data not shown, Δ = 0,32 pp.)
+
+
+Recommendations
+1. Different types of parental involvement should be promoted
+2. Implement a teacher screening process focusing on teaching quality metrics
+3. Students should be taught about assertiveness to minimize the negative influence of other people
+4. Greater aid for students with disabilities should be implemented
+5. Classes about motivation for studying and studying techniques should be organized
+6. It should be explained to students why attendance in classes is important and how it may help them reach a higher score
+
+In summary, we can see that many factors can impact the exam results. But we have to consider whether changes are significant - comparing mean scores, we can observe differences not reaching 2 percentage points. But for more detailed analysis, it's worth paying attention to the distribution and maximum scores, as they vary. However, the dataset is not perfect and contains surprising but not deeply disturbing data - for example, in the group with no learning disabilities score of 101 points can be found. For real and deep analysis, the data for every group should be additionally screened if incorrect values are present - in SQL it can be done usinga  command like "Select * from results where [name of the column/group] > 100"
